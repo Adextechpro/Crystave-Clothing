@@ -7,7 +7,7 @@ export default function Home() {
   // 8 luxury categories for a high-end feel
   const products = [
     { name: "Bespoke", image: "Testing.png", href: "/products/bespoke" },
-    { name: "Bridal", image: "bridal.jpgclear", href: "/products/bridal" },
+    { name: "Bridal", image: "bridal.jpg", href: "/products/bridal" },
     { name: "Kids Wear", image: "child.jpg", href: "/products/kids" },
     { name: "Ready to Wear", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000", href: "/products/ready-to-wear" },
     { name: "Custom Made", image: "Readytowear2.png", href: "/products/ready-to-wear" },
