@@ -9,11 +9,11 @@ export default function Home() {
     { name: "Bespoke", image: "Testing.png", href: "/products/bespoke" },
     { name: "Bridal", image: "bridal.jpg", href: "/products/bridal" },
     { name: "Kids Wear", image: "child.jpg", href: "/products/kids" },
-    { name: "Ready to Wear", image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000", href: "/products/ready-to-wear" },
+    { name: "Ready to Wear", image: "bespoke08.jpg", href: "/products/ready-to-wear" },
     { name: "Custom Made", image: "Readytowear2.png", href: "/products/ready-to-wear" },
-    { name: "Accessories", image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=1000", href: "/products/ready-to-wear" },
-    { name: "Footwear", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000", href: "/products/ready-to-wear" },
-    { name: "Tailoring", image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1000", href: "/products/bespoke" },
+    { name: "Accessories", image: "bespoke05.jpg", href: "/products/ready-to-wear" },
+    { name: "Footwear", image: "child03.jpg", href: "/products/ready-to-wear" },
+    { name: "Tailoring", image: "bespoke07.jpg", href: "/products/bespoke" },
   ];
 
   return (

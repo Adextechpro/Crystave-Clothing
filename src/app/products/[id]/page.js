@@ -5,110 +5,111 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 export default function CategoryPage({ params }) {
   const id = React.use(params).id;
 
-  // Function to generate 16 items per category easily for this example
-  const generateItems = (categoryName, basePrice, imgBase) => {
-    
-    return Array.from({ length: 16 }, (_, i) => ({
-      id: i + 1,
-      name: `${categoryName} Piece №${100 + i}`,
-      price: `$${basePrice + (i * 50)}`,
-      img: `${imgBase}?sig=${i + (id === 'bespoke' ? 10 : 20)}` // Added sig to ensure unique images
-    }));
-  };
-
   const categoryData = {
     bespoke: {
       title: "Bespoke Atelier",
-      description: "A legacy of craftsmanship. Each of these 16 signature pieces represents our commitment to the art of tailoring.",
-      items: generateItems("Bespoke", 2000, "https://images.unsplash.com/photo-1594932224828-b4b057b7d6ee")
+      description: "The height of sartorial elegance, crafted specifically for your silhouette.",
+      items: [
+        { id: 1, name: "The Midnight Tuxedo", price: "$2,800", img: "/bespoke01.jpg" },
+        { id: 2, name: "Double-Breasted Wool Coat", price: "$1,500", img: "/bespoke02.jpg" },
+        { id: 3, name: "Silk-Lined Dinner Jacket", price: "$1,900", img: "/bespoke03.jpg" },
+        { id: 4, name: "Italian Linen Suit", price: "$2,100", img: "/bespoke04.jpg" },
+        { id: 5, name: "Charcoal Morning Coat", price: "$2,400", img: "/bespoke05.jpg" },
+        { id: 6, name: "Navy Herringbone Suit", price: "$2,250", img: "/bespoke06.jpg" },
+        { id: 7, name: "Velvet Smoking Jacket", price: "$1,750", img: "/bespoke07.jpg" },
+        { id: 8, name: "Classic Peak Lapel Suit", price: "$2,300", img: "/bespoke08.jpg" },
+      ]
     },
     bridal: {
       title: "The Bridal Suite",
-      description: "Sixteen hand-curated gowns designed for the most unforgettable moments of a lifetime.",
-      items: generateItems("Bridal", 3500, "https://images.unsplash.com/photo-1594462285124-5f3c02852124")
+      description: "Ethereal silhouettes and hand-stitched lace for your most memorable moment.",
+      items: [
+        { id: 1, name: "Lace Cathedral Gown", price: "$4,500", img: "/bridal.jpg" },
+        { id: 2, name: "Silk Mermaid Silhouette", price: "$3,800", img: "/productbridal01.jpg" },
+        { id: 3, name: "Embroidered Veil Gown", price: "$5,200", img: "/bridal.jpg" },
+        { id: 4, name: "Off-Shoulder Satin Dress", price: "$3,200", img: "/productbridal01.jpg" },
+        { id: 5, name: "Minimalist Column Gown", price: "$2,900", img: "/bridal.jpg" },
+        { id: 6, name: "Boho Lace Wedding Dress", price: "$3,500", img: "/productbridal01.jpg" },
+        { id: 7, name: "Royal Tulle Ballgown", price: "$6,000", img: "/bridal.jpg" },
+        { id: 8, name: "Vintage Ivory Gown", price: "$4,100", img: "/productbridal01.jpg" },
+      ]
     },
     "ready-to-wear": {
       title: "Ready to Wear",
-      description: "The modern wardrobe. A collection of 16 versatile essentials for the contemporary lifestyle.",
-      items: generateItems("RTW", 250, "https://images.unsplash.com/photo-1490481651871-ab68de25d43d")
+      description: "Artisanal quality garments, prepared for the pace of the modern world.",
+      items: [
+        { id: 1, name: "Cashmere Turtleneck", price: "$450", img: "/bespoke04.jpg" },
+        { id: 2, name: "Structured Blazer", price: "$890", img: "/productbridal01.jpg" },
+        { id: 3, name: "Pleated Trousers", price: "$350", img: "/bespoke04.jpg" },
+        { id: 4, name: "Merino Wool Cardigan", price: "$290", img: "/productbridal01.jpg" },
+        { id: 5, name: "Poplin White Shirt", price: "$180", img: "/bespoke04.jpg" },
+        { id: 6, name: "Camel Overcoat", price: "$1,100", img: "/productbridal01.jpg" },
+        { id: 7, name: "Suede Chelsea Boots", price: "$420", img: "/bespoke04.jpg" },
+        { id: 8, name: "Silk Pocket Square", price: "$85", img: "/productbridal01.jpg" },
+      ]
     },
     kids: {
       title: "Crystave Petit",
-      description: "Generational elegance. Explore our 16 charming silhouettes for children.",
-      items: generateItems("Petit", 120, "https://images.unsplash.com/photo-1621454523226-eb4f525c8ffd")
+      description: "Exceptional tailoring and sophistication for the next generation.",
+      items: [
+        { id: 1, name: "Mini Velvet Blazer", price: "$250", img: "/child.jpg" },
+        { id: 2, name: "Heirloom Silk Dress", price: "$310", img: "/child01.jpg" },
+        { id: 3, name: "Linen Christening Set", price: "$180", img: "/child02.jpg" },
+        { id: 4, name: "Toddler Bowtie Suit", price: "$220", img: "/child03.jpg" },
+        { id: 5, name: "Junior Wool Peacoat", price: "$275", img: "/child04.jpg" },
+        { id: 6, name: "Floral Lace Flower-Girl", price: "$290", img: "/child05.jpg" },
+        { id: 7, name: "Cotton Page-Boy Set", price: "$195", img: "/child06.jpg" },
+        { id: 8, name: "Silk Satin Headband", price: "$45", img: "/child.jpg" },
+      ]
     }
   };
 
   const page = categoryData[id] || categoryData["ready-to-wear"];
 
-  const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth", // This creates the elegant sliding effect
-  });
-};
-
-  
-
   return (
-    <main className="min-h-screen bg-[#FAF9F6] pt-32 pb-24">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+    <main className="min-h-screen bg-[#FAF9F6] pt-32 pb-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* HEADER SECTION */}
-        <header className="mb-20 text-center flex flex-col items-center">
-          <h1 className="text-5xl md:text-7xl font-serif text-[#4A4238] uppercase tracking-tighter mb-6">
+        {/* CATEGORY HEADER */}
+        <div className="mb-16">
+          <h1 className="text-4xl md:text-5xl font-serif text-[#4A4238] uppercase tracking-tighter">
             {page.title}
           </h1>
-          <p className="text-[#918170] max-w-2xl text-[12px] tracking-[0.4em] uppercase leading-relaxed">
+          <p className="text-[#918170] mt-4 max-w-xl text-[11px] tracking-[0.3em] uppercase leading-relaxed">
             {page.description}
           </p>
-          <div className="w-16 h-[1px] bg-[#D2B48C] mt-10"></div>
-        </header>
+          <div className="w-20 h-[1px] bg-[#D2B48C] mt-8"></div>
+        </div>
 
-        {/* 16 ITEM GRID: 4 columns on large screens, 2 on tablet, 1 on mobile */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
+        {/* 4-COLUMN PRODUCT GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-6">
           {page.items.map((product) => (
-            <div key={product.id} className="group flex flex-col">
-              {/* Product Image */}
-              <div className="relative aspect-[3/4] bg-[#F1EFE9] overflow-hidden mb-6">
+            <div key={product.id} className="group cursor-pointer">
+              <div className="relative aspect-[3/4] bg-[#EADDCA] overflow-hidden mb-5">
                 <img 
-                  src={`${product.img}&auto=format&fit=crop&w=800&q=80`} 
+                  src={product.img} 
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  // Fallback if local image doesn't exist yet
+                  onError={(e) => { e.target.src = "https://via.placeholder.com/600x800?text=Crystave+Collection"; }}
                 />
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all duration-500"></div>
               </div>
 
-              {/* Product Info */}
-              <div className="flex flex-col space-y-2">
-                <div className="flex justify-between items-end">
-                  <h3 className="text-[12px] tracking-[0.15em] uppercase text-[#4A4238] font-medium leading-tight max-w-[80%]">
+              <div className="space-y-1 px-1">
+                <div className="flex justify-between items-center">
+                  <h3 className="text-[11px] tracking-widest uppercase text-[#4A4238] font-medium">
                     {product.name}
                   </h3>
-                  <HiOutlineArrowNarrowRight className="text-[#4A4238] opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                  <HiOutlineArrowNarrowRight className="text-[#4A4238] opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300" />
                 </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-[11px] text-[#918170] tracking-widest italic font-serif">
-                    {product.price}
-                  </span>
-                  <span className="h-[1px] w-4 bg-[#EADDCA]"></span>
-                </div>
+                <p className="text-[10px] text-[#918170] tracking-wider italic font-serif">
+                  {product.price}
+                </p>
               </div>
             </div>
           ))}
         </div>
-
-        {/* OPTIONAL: PAGINATION OR CONTACT FOOTER */}
-        <footer className="mt-24 pt-16 border-t border-[#EADDCA] text-center">
-          <p className="text-[10px] tracking-[0.5em] text-[#918170] uppercase mb-8">End of {page.title} Collection</p>
-          <button 
-  onClick={scrollToTop}
-  className="text-[11px] tracking-[0.3em] uppercase text-[#4A4238] border-b border-[#4A4238] pb-1 hover:text-[#D2B48C] hover:border-[#D2B48C] transition-all cursor-pointer"
->
-  Back to top
-</button>
-        </footer>
 
       </div>
     </main>
